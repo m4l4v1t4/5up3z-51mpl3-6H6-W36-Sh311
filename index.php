@@ -97,7 +97,7 @@ if (!empty($_POST['malavita2'])) {
         </form>
         <hr />
         <form method="post">
-            <label for="malavita"><strong>Code</strong></label>
+            <label for="malavita2"><strong>Code</strong></label>
             <div class="form-group">
                 <textarea name="malavita2" id="malavita2" value="<?php echo htmlspecialchars($_POST['malavita2'], ENT_QUOTES, 'UTF-8'); ?>"
                        onfocus="this.setSelectionRange(this.value.length, this.value.length);" autofocus required>

